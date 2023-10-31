@@ -1,10 +1,15 @@
 <template>
-    <p class="text-xl">Zero width character</p>
-    <hr
-        class="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100" />
+    <p class="text-xl text-opacity-10 opacity-50">Zero width character</p>
+    <Hr />
     <UTabs :items="items">
+        <template #default="{ item, index }">
+            <div class="flex items-center gap-2 relative truncate">
+                <UIcon :name="item.icon" class="w-4 h-4 flex-shrink-0" />
+                <span class="truncate">{{ item.label }}</span>
+            </div>
+        </template>
         <template #item="{ item }">
-            <UCard>
+            <UCard class="text-xs">
                 <template #header>
                     <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
                         {{ item.label }}
@@ -20,7 +25,7 @@
                     <UTextarea class="mb-3" :rows="2" variant="outline" name="textarea" placeholder="Hidden Text"
                         v-model="encodeHidden" />
                 </div>
-                <div class="grid grid-cols-2 gap-4 divide-dashed">
+                <div class="grid md:grid-cols-2 gap-4 divide-dashed grid-cols-1">
                     <!-- Filter Part -->
                     <div v-if="item.key == 'filter'">
                         <p class="text-xs my-2">Original Text: {{ filterOriginal.length > 0 ? `(${filterOriginal.length})` :
@@ -81,18 +86,21 @@ const items = [{
     key: 'filter',
     label: 'Sensitive Word Filter',
     description: 'This is used to prevent basic sensitive detection in Chinese internets. It will add a zero width character after every word.',
-    processedTitle: 'Filtered Text:'
+    processedTitle: 'Filtered Text:',
+    icon: 'i-heroicons-funnel'
 }, {
     key: 'encode',
     label: 'Encode',
     description: 'Hide information in your text.',
-    processedTitle: 'Encoded Text:'
+    processedTitle: 'Encoded Text:',
+    icon: 'i-heroicons-lock-closed'
 },
 {
     key: 'decode',
     label: 'Decode',
     description: 'Decode information in you text.',
-    processedTitle: 'Decoded Text:'
+    processedTitle: 'Decoded Text:',
+    icon: 'i-heroicons-lock-open'
 }
 ];
 

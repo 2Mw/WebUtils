@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxt/image": "^1.0.0",
     "autoprefixer": "^10.4.16",
     "nuxt": "^3.8.0",
     "postcss": "^8.4.31",
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.9.0",
-    "@pinia/nuxt": "^0.5.1"
+    "@pinia/nuxt": "^0.5.1",
+    "exifr": "^7.1.3"
   }
 }

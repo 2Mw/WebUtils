@@ -1,5 +1,5 @@
 <template>
-    <UCard class="min-h-screen min-w-full">
+    <UCard class="min-h-screen min-w-full font-serif">
         <template #header>
             <p class="text-center text-xl">
                 <NuxtLink to="/">My Web Utils</NuxtLink>
